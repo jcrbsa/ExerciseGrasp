@@ -22,7 +22,18 @@ class Product {
 		this.perecivel = perecivel;
 	}
 
+	public void printerProduct(){
+		String str = "Name#: " + this.name + "\n";
+		
+		str += "Price: " + this.price + "\n";
+		str += "Weight: " + this.weight + "\n";
+		str += "Perecivel: " + this.weight + "\n";
+		//str += "Calculate Price: " + this.calculatePrice(this.) + "\n";
+		//str += "Calculate Weight: " + this.calculateWeight(quantity) + "\n";
 
+		System.out.println(str);
+		
+	}
 	public String getName() {
 		return this.name;
 	}

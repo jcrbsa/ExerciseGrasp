@@ -22,7 +22,7 @@ class Customer {
 		order.setPayment(payment);
 		order.setShipping(shipping);
 		
-		double total = Mainold.calculate(order);
+		double total = order.calculateOrder();
 		
 		return  "Customer: " + this.name + "\n" + 
 				"Address:" + this.address + "\n" +

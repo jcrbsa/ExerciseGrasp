@@ -3,9 +3,16 @@ package br.edu.ifpe.tads.lpoo2.grasp.parte2;
 class BankTransfer extends Payment {
 
 	@Override
-	double orderPayment(double totalItems) {
-		// TODO Auto-generated method stub
+	double orderPayment(Order order) {
+		double total = 0;
 		
-		totalItems *= 0.9; // 10% de desconto		return
-		return totalItems;
-	}}
+		for (OrderItem item : order.getItems()) {
+			total += item.calculatePriceItem(order.getShipping());		
+		}
+		 total *= 0.9;
+		 return total;
+	
+	}
+
+
+}

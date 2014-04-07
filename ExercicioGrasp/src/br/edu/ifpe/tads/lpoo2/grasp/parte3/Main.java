@@ -9,13 +9,15 @@ public class Main {
 	public static void main (String [] args) throws Exception {
 		
             
-                List<Order> listasOrder = new ArrayList<Order>();
+        List<Order> listasOrder = new ArrayList<Order>();
 		Customer csJohnSmith = new Customer("John Smith", "Rua da Aurora");
 		Customer csTonyRamos = new Customer("Tony Ramos", "Rua do Projac");
 		Customer csMariaGracas = new Customer("Maria das Graças","Av. do Sucesso");
-		
+		List<Product> listsProduct = new ArrayList<Product>();
 		Product prTV = new Product("TV", 1500.00, 24.5);
+		listsProduct.add(prTV);
 		Product prLaptop = new Product("Laptop", 1200.00, 5.2);
+		listsProduct.add(prLaptop);
 		Product prLavadora = new Product("Lavadora", 1000.00, 50);
 		Product prRelogio = new Product("Relógio", 300, 0.5);
 		
@@ -27,14 +29,16 @@ public class Main {
 		order1.addOrderItem(new OrderItem(prTV, 1));
 		order1.addOrderItem(new OrderItem(prLaptop, 2));
                 
+		OrderController orderController = order1;
 		
-                
+		orderController.realizeOrder(listsProduct, csJohnSmith, spExpress );
+		orderController.visualizeOrders();
 		//order1.printOrder();
                 
                 
 		order1.setShipping(spStandard);
 		//System.out.println(csJohnSmith.checkout(order1, new BankTransfer(), spStandard));
-		listasOrder.add(order1);
+		/*listasOrder.add(order1);
                 
                 
 		Order order2 = new Order(2);
@@ -62,7 +66,7 @@ public class Main {
          
                     test.createXML(listasOrder);
                 
-            
+          */  
                 
 	}
 	

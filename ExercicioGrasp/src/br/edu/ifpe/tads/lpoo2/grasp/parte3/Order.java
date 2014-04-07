@@ -3,7 +3,7 @@ package br.edu.ifpe.tads.lpoo2.grasp.parte3;
 import java.util.ArrayList;
 import java.util.List;
 
-class Order implements OrderFacade{
+class Order implements OrderController{
 	private int number;
 	private Customer customer;
 	private Payment payment;
@@ -70,25 +70,23 @@ class Order implements OrderFacade{
 	 * Expert
 	 * Método para calcular Pedido é resposabildade de Order enão métod estático da classe principal do programa
 	 * */
+	/*
+	 * @grasp Advanced > Protecte Variation
+	 * levantar excecao se não houver  payment
+	 * */
 	
-	public double calculateOrder() {	
 	
-	double total = 0;
-	
-	for (OrderItem item : this.getItems()) {
-		total += item.calculatePriceItem(this.getShipping());		
-	}
+	public double calculateOrderPayment() {	
+
 	
 	if (this.getPayment() instanceof BankTransfer) {
-		total *= 0.9; // 10% de desconto
-	}
-	
-	if (this.getPayment() instanceof CreditCard) {
-		total *= 0.5; // 10% de desconto
+		payment = new BankTransfer();
 		
+	}else if (this.getPayment() instanceof CreditCard) {
+		payment = new CreditCard();
 	}
-	
-	return total;
+	return payment.orderPayment(this);
+
 }
 
 	
@@ -138,14 +136,16 @@ class Order implements OrderFacade{
 		order.setPayment(payment);
 		order.setShipping(shipping);
 		
-		double total = order.calculateOrder();
+		double total = order.calculateOrderPayment();
 		orders.set(order.getNumber(), order);
 		
 	}
 
 	@Override
 	public void visualizeOrders() {
-		// TODO Auto-generated method stub
+		for (Order order : orders) {
+			order.printOrder();
+		}
 		
 	}
 
