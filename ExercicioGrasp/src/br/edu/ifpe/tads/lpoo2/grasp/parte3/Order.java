@@ -5,16 +5,26 @@ import java.util.List;
 
 class Order implements OrderController{
 	private int number;
+	private double totalOrderPayment;
 	private Customer customer;
 	private Payment payment;
 	private Shipping shipping; 
 	private static int id=0;
 
+	public double getTotalOrderPayment() {
+		return totalOrderPayment;
+	}
+
+	public void setTotalOrderPayment(double totalOrderPayment) {
+		this.totalOrderPayment = totalOrderPayment;
+	}
+
 	private List<OrderItem> items = new ArrayList<OrderItem>();
-	private static List<Order> orders = new ArrayList<Order>();
+	private PersistentStorage  persistentStorage;
 
 	public Order(int number) {
 		this.number = number;
+		persistentStorage = new StorageRepository();
 	}
 	
 	public int getNumber() {
@@ -92,17 +102,18 @@ class Order implements OrderController{
 	
 
 	@Override
-	public void editOrder() {
-		// TODO Auto-generated method stub
+	public void editOrder(int id, Order order) {
+		
+		persistentStorage.updateOrder(id, order);
 		
 	}
 
 
 
 	@Override
-	public void cancelOrder() {
-		// TODO Auto-generated method stub
+	public void deleteOrder(int id, Order order) {
 		
+		persistentStorage.deleteOrder(id);
 	}
 
 	
@@ -126,7 +137,7 @@ class Order implements OrderController{
 		//order1.printOrder();
                               
 		order1.setShipping(shipping);
-		orders.add(order1);
+		persistentStorage.insertOrder(order1);
 		
 	}
 
@@ -136,14 +147,16 @@ class Order implements OrderController{
 		order.setPayment(payment);
 		order.setShipping(shipping);
 		
-		double total = order.calculateOrderPayment();
-		orders.set(order.getNumber(), order);
+		order.setTotalOrderPayment(order.calculateOrderPayment());
+		this.editOrder(order.getNumber(), order);
 		
 	}
 
 	@Override
 	public void visualizeOrders() {
-		for (Order order : orders) {
+		
+		
+		for (Order order : persistentStorage.selectOrders()) {
 			order.printOrder();
 		}
 		

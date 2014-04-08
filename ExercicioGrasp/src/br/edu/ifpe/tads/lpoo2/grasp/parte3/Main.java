@@ -12,14 +12,14 @@ public class Main {
         List<Order> listasOrder = new ArrayList<Order>();
 		Customer csJohnSmith = new Customer("John Smith", "Rua da Aurora");
 		Customer csTonyRamos = new Customer("Tony Ramos", "Rua do Projac");
-		Customer csMariaGracas = new Customer("Maria das Graças","Av. do Sucesso");
+		Customer csMariaGracas = new Customer("Maria das Gracas","Av. do Sucesso");
 		List<Product> listsProduct = new ArrayList<Product>();
 		Product prTV = new Product("TV", 1500.00, 24.5);
 		listsProduct.add(prTV);
 		Product prLaptop = new Product("Laptop", 1200.00, 5.2);
 		listsProduct.add(prLaptop);
 		Product prLavadora = new Product("Lavadora", 1000.00, 50);
-		Product prRelogio = new Product("Relógio", 300, 0.5);
+		Product prRelogio = new Product("Rel�gio", 300, 0.5);
 		
 		Shipping spStandard = new Shipping(1.50, 1);
 		Shipping spExpress = new Shipping(3.00, 3);

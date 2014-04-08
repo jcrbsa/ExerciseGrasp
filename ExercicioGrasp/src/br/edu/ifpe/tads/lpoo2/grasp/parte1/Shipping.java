@@ -23,6 +23,8 @@ class Shipping {
 		
 		
 	}
+	
+	
 	public void percentagemSobreFrete(Product produto, int quantidade){
 		
 		
