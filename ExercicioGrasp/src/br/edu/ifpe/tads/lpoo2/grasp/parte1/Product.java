@@ -4,6 +4,9 @@ class Product {
 	String name;
 	double price;
 	double weight;
+	/*
+	 * Adiciona produto perecível
+	 */
 	boolean perecivel;
 	
 	public Product(String name, double price, double weight) {

@@ -1,5 +1,8 @@
 package br.edu.ifpe.tads.lpoo2.grasp.parte3;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -13,9 +16,46 @@ import java.util.List;
 
 public class StorageDAO implements PersistentStorage{
 
+    private Connection con;
+    private String sql;
+    private Order order;
+    private List<Order> listaCandidato;
+	
+	
 	@Override
 	public boolean insertOrder(Order order) {
-		// TODO Auto-generated method stub
+
+
+		sql = "INSERT INTO ORDER(orderItemname,shippingPrice, TIPO)VALUES(?,?,?)";
+        try {
+            con = new ConnectDB().getConexao();
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            int count=1;
+            
+            for(OrderItem order :=order.getItems()){
+            	
+            }
+            /*
+             * 
+             * stmt.setString(count++, order.getEmail());
+             */
+            stmt.setString(count++, login.getSenha());
+            stmt.setString(count++, login.getTipo());
+            stmt.executeUpdate();
+            
+            stmt.close();
+            
+            
+        } catch (ClassNotFoundException ex) {
+        } catch (SQLException ex) {
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+            }
+        }
+		
 		return false;
 	}
 

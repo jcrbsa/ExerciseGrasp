@@ -15,7 +15,12 @@ class Customer {
 	
 	public String checkout(Order order, Payment payment, Shipping shipping) throws Exception {		
 		
-		
+		/*
+		 * 3 a)Lance uma exceção se o produto não puder ser entregue 
+		 * no prazo máximo do tipo de frete escolhido ao fechar a compra (checkout).
+		 * 
+		 * 
+		 */
 		if(shipping.deliveryTime > Shipping.TEMPO_MAXIMO_ENTREGA){
 			throw new Exception("o produto não pode ser entregue no prazo máximo do tipo de frete escolhido ao fechar a compra!");
 		}

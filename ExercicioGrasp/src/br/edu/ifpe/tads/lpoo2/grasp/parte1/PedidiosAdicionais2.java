@@ -17,8 +17,12 @@ public class PedidiosAdicionais2 {
 			Product prLavadora = new Product("Ipod", 1000.00, 50);
 			Product prRelogio = new Product("Iphone", 1300, 0.5);
 			
-			Shipping spStandard = new Shipping(20.0, 0);
-			Shipping spExpress = new Shipping(20.0, 0);
+			
+			/*
+			  * Tipo de entrega no mesmo dia e preco de 20 kg
+			  */
+			Shipping spStandard = new Shipping();
+			Shipping spExpress = new Shipping();
 			
 			
 					

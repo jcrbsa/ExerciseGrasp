@@ -6,6 +6,19 @@ class Shipping {
 	 static final int CrediCard = 0;
 	 static final int BankTransfer = 1;
 	 static final int TEMPO_MAXIMO_ENTREGA = 5;
+	 
+	 
+	 /*
+	  * Tipo de entrega no mesmo dia e preco de 20 kg
+	  */
+	 
+	 
+	 public Shipping() {
+			this.pricePerWeight = 20;
+			this.deliveryTime = 0;
+		}
+	 
+	 
 	public Shipping(double d, int i) {
 		this.pricePerWeight = d;
 		this.deliveryTime = i;
@@ -24,7 +37,10 @@ class Shipping {
 		
 	}
 	
-	
+	/*
+	 * Tempo máximo de entrega de dois dias e 10% no preço do frete
+	 * 
+	 */
 	public void percentagemSobreFrete(Product produto, int quantidade){
 		
 		

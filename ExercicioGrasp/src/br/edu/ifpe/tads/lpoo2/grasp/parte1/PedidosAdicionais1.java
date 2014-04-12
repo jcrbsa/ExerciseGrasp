@@ -48,7 +48,10 @@ public class PedidosAdicionais1 {
 		
 		
 	}
-	
+	/*
+	 * Checa pelo tipo de pagamento dentro de classe principal
+	 * 
+	 */
 public static double calculate(Order order) {	
 		
 		double total = 0;

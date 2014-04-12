@@ -1,16 +1,13 @@
 package br.edu.ifpe.tads.lpoo2.grasp.parte2;
 
-abstract class Payment implements Reports {
+abstract class Payment {
 	
 	/*
-	 * @GRASP: Expert
+	 * @GRASP: Polimorfismo
 	 * 
 	 * */
 	abstract double orderPayment(Order order);
 	
-	public void print() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }

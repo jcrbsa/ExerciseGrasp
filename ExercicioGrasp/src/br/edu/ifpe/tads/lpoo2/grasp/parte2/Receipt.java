@@ -4,6 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
+/*
+ * 
+ * Pure fabrication a criação de uma classe especifica para impressao
+ */
 public class Receipt {
 
 	Product product;
@@ -12,7 +17,6 @@ public class Receipt {
 	
 	
 	public Receipt(Product product, Order order) {
-		super();
 		this.product = product;
 		this.order = order;
 	}
